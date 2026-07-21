@@ -1,0 +1,384 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\E882\\Intern\\2026_Intern\\sourcecode\\InpatPharmacy\\InpatPharmacy\\WebSite.AppInPtUddWork\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9E92CC86-4146-4031-B174-6FBF26F9C579}|WebSite.AppInPtUddWork.csproj|d:\\e882\\intern\\2026_intern\\sourcecode\\inpatpharmacy\\inpatpharmacy\\website.appinptuddwork\\services\\wardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E92CC86-4146-4031-B174-6FBF26F9C579}|WebSite.AppInPtUddWork.csproj|solutionrelative:services\\wardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E92CC86-4146-4031-B174-6FBF26F9C579}|WebSite.AppInPtUddWork.csproj|d:\\e882\\intern\\2026_intern\\sourcecode\\inpatpharmacy\\inpatpharmacy\\website.appinptuddwork\\services\\uddworkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E92CC86-4146-4031-B174-6FBF26F9C579}|WebSite.AppInPtUddWork.csproj|solutionrelative:services\\uddworkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E92CC86-4146-4031-B174-6FBF26F9C579}|WebSite.AppInPtUddWork.csproj|d:\\e882\\intern\\2026_intern\\sourcecode\\inpatpharmacy\\inpatpharmacy\\website.appinptuddwork\\services\\basicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E92CC86-4146-4031-B174-6FBF26F9C579}|WebSite.AppInPtUddWork.csproj|solutionrelative:services\\basicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E92CC86-4146-4031-B174-6FBF26F9C579}|WebSite.AppInPtUddWork.csproj|d:\\e882\\intern\\2026_intern\\sourcecode\\inpatpharmacy\\inpatpharmacy\\website.appinptuddwork\\services\\hisproxyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E92CC86-4146-4031-B174-6FBF26F9C579}|WebSite.AppInPtUddWork.csproj|solutionrelative:services\\hisproxyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E92CC86-4146-4031-B174-6FBF26F9C579}|WebSite.AppInPtUddWork.csproj|d:\\e882\\intern\\2026_intern\\sourcecode\\inpatpharmacy\\inpatpharmacy\\website.appinptuddwork\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{9E92CC86-4146-4031-B174-6FBF26F9C579}|WebSite.AppInPtUddWork.csproj|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E92CC86-4146-4031-B174-6FBF26F9C579}|WebSite.AppInPtUddWork.csproj|D:\\E882\\Intern\\2026_Intern\\sourcecode\\InpatPharmacy\\InpatPharmacy\\WebSite.AppInPtUddWork\\views\\inptuddwork\\inptuddwork.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9E92CC86-4146-4031-B174-6FBF26F9C579}|WebSite.AppInPtUddWork.csproj|solutionrelative:views\\inptuddwork\\inptuddwork.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E92CC86-4146-4031-B174-6FBF26F9C579}|WebSite.AppInPtUddWork.csproj|D:\\E882\\Intern\\2026_Intern\\sourcecode\\InpatPharmacy\\InpatPharmacy\\WebSite.AppInPtUddWork\\controllers\\inptuddworkcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E92CC86-4146-4031-B174-6FBF26F9C579}|WebSite.AppInPtUddWork.csproj|solutionrelative:controllers\\inptuddworkcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E92CC86-4146-4031-B174-6FBF26F9C579}|WebSite.AppInPtUddWork.csproj|D:\\E882\\Intern\\2026_Intern\\sourcecode\\InpatPharmacy\\InpatPharmacy\\WebSite.AppInPtUddWork\\models\\uddworkmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E92CC86-4146-4031-B174-6FBF26F9C579}|WebSite.AppInPtUddWork.csproj|solutionrelative:models\\uddworkmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E92CC86-4146-4031-B174-6FBF26F9C579}|WebSite.AppInPtUddWork.csproj|D:\\E882\\Intern\\2026_Intern\\sourcecode\\InpatPharmacy\\InpatPharmacy\\WebSite.AppInPtUddWork\\views\\system\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9E92CC86-4146-4031-B174-6FBF26F9C579}|WebSite.AppInPtUddWork.csproj|solutionrelative:views\\system\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\E882\\eHealthRepository_Team\\ProxyTest\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 294,
+          "SelectedChildIndex": 20,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:11:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:12:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{809f6ff3-8092-454a-8003-6d4091f9b5bb}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:13:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:14:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:15:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:16:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:17:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "WardService.cs",
+              "DocumentMoniker": "D:\\E882\\Intern\\2026_Intern\\sourcecode\\InpatPharmacy\\InpatPharmacy\\WebSite.AppInPtUddWork\\Services\\WardService.cs",
+              "RelativeDocumentMoniker": "Services\\WardService.cs",
+              "ToolTip": "D:\\E882\\Intern\\2026_Intern\\sourcecode\\InpatPharmacy\\InpatPharmacy\\WebSite.AppInPtUddWork\\Services\\WardService.cs",
+              "RelativeToolTip": "Services\\WardService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-06T05:54:42.508Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UddWorkService.cs",
+              "DocumentMoniker": "D:\\E882\\Intern\\2026_Intern\\sourcecode\\InpatPharmacy\\InpatPharmacy\\WebSite.AppInPtUddWork\\Services\\UddWorkService.cs",
+              "RelativeDocumentMoniker": "Services\\UddWorkService.cs",
+              "ToolTip": "D:\\E882\\Intern\\2026_Intern\\sourcecode\\InpatPharmacy\\InpatPharmacy\\WebSite.AppInPtUddWork\\Services\\UddWorkService.cs",
+              "RelativeToolTip": "Services\\UddWorkService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-06T05:54:37.509Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BasicService.cs",
+              "DocumentMoniker": "D:\\E882\\Intern\\2026_Intern\\sourcecode\\InpatPharmacy\\InpatPharmacy\\WebSite.AppInPtUddWork\\Services\\BasicService.cs",
+              "RelativeDocumentMoniker": "Services\\BasicService.cs",
+              "ToolTip": "D:\\E882\\Intern\\2026_Intern\\sourcecode\\InpatPharmacy\\InpatPharmacy\\WebSite.AppInPtUddWork\\Services\\BasicService.cs",
+              "RelativeToolTip": "Services\\BasicService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-06T05:54:36.25Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Web.config",
+              "DocumentMoniker": "D:\\E882\\Intern\\2026_Intern\\sourcecode\\InpatPharmacy\\InpatPharmacy\\WebSite.AppInPtUddWork\\Web.config",
+              "RelativeDocumentMoniker": "Web.config",
+              "ToolTip": "D:\\E882\\Intern\\2026_Intern\\sourcecode\\InpatPharmacy\\InpatPharmacy\\WebSite.AppInPtUddWork\\Web.config",
+              "RelativeToolTip": "Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-07-06T05:54:15.762Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "D:\\E882\\Intern\\2026_Intern\\sourcecode\\InpatPharmacy\\InpatPharmacy\\WebSite.AppInPtUddWork\\Views\\System\\Login.cshtml",
+              "RelativeDocumentMoniker": "Views\\System\\Login.cshtml",
+              "ToolTip": "D:\\E882\\Intern\\2026_Intern\\sourcecode\\InpatPharmacy\\InpatPharmacy\\WebSite.AppInPtUddWork\\Views\\System\\Login.cshtml",
+              "RelativeToolTip": "Views\\System\\Login.cshtml",
+              "ViewState": "AgIAAAkAAADA/////38mwBYAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-23T01:02:18.497Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UddWorkModel.cs",
+              "DocumentMoniker": "D:\\E882\\Intern\\2026_Intern\\sourcecode\\InpatPharmacy\\InpatPharmacy\\WebSite.AppInPtUddWork\\Models\\UddWorkModel.cs",
+              "RelativeDocumentMoniker": "Models\\UddWorkModel.cs",
+              "ToolTip": "D:\\E882\\Intern\\2026_Intern\\sourcecode\\InpatPharmacy\\InpatPharmacy\\WebSite.AppInPtUddWork\\Models\\UddWorkModel.cs",
+              "RelativeToolTip": "Models\\UddWorkModel.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAApwC8AAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-22T16:34:12.997Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\E882\\eHealthRepository_Team\\ProxyTest\\Program.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\eHealthRepository_Team\\ProxyTest\\Program.cs",
+              "ToolTip": "D:\\E882\\eHealthRepository_Team\\ProxyTest\\Program.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\eHealthRepository_Team\\ProxyTest\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-22T16:28:10.47Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HisProxyService.cs",
+              "DocumentMoniker": "D:\\E882\\Intern\\2026_Intern\\sourcecode\\InpatPharmacy\\InpatPharmacy\\WebSite.AppInPtUddWork\\Services\\HisProxyService.cs",
+              "RelativeDocumentMoniker": "Services\\HisProxyService.cs",
+              "ToolTip": "D:\\E882\\Intern\\2026_Intern\\sourcecode\\InpatPharmacy\\InpatPharmacy\\WebSite.AppInPtUddWork\\Services\\HisProxyService.cs",
+              "RelativeToolTip": "Services\\HisProxyService.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAvwCQAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-22T15:39:09.724Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "InPtUddWork.cshtml",
+              "DocumentMoniker": "D:\\E882\\Intern\\2026_Intern\\sourcecode\\InpatPharmacy\\InpatPharmacy\\WebSite.AppInPtUddWork\\Views\\InPtUddWork\\InPtUddWork.cshtml",
+              "RelativeDocumentMoniker": "Views\\InPtUddWork\\InPtUddWork.cshtml",
+              "ToolTip": "D:\\E882\\Intern\\2026_Intern\\sourcecode\\InpatPharmacy\\InpatPharmacy\\WebSite.AppInPtUddWork\\Views\\InPtUddWork\\InPtUddWork.cshtml",
+              "RelativeToolTip": "Views\\InPtUddWork\\InPtUddWork.cshtml",
+              "ViewState": "AgIAAOEAAAAAAAAAAAAiwPIAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-22T15:15:46.848Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "InPtUddWorkController.cs",
+              "DocumentMoniker": "D:\\E882\\Intern\\2026_Intern\\sourcecode\\InpatPharmacy\\InpatPharmacy\\WebSite.AppInPtUddWork\\Controllers\\InPtUddWorkController.cs",
+              "RelativeDocumentMoniker": "Controllers\\InPtUddWorkController.cs",
+              "ToolTip": "D:\\E882\\Intern\\2026_Intern\\sourcecode\\InpatPharmacy\\InpatPharmacy\\WebSite.AppInPtUddWork\\Controllers\\InPtUddWorkController.cs",
+              "RelativeToolTip": "Controllers\\InPtUddWorkController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-22T15:13:28.75Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 221,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:135:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:136:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:137:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:138:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:135:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{c93a910a-0fa6-4307-93a4-f2bd61ec7828}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 93,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 132,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 198,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{131369f2-062d-44a2-8671-91ff31efb4f4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

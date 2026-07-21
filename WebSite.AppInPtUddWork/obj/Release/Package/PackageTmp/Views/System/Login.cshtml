@@ -1,0 +1,84 @@
+﻿@model WebSite.AppInPtUddWork.Models.User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://MDevWS.csh.org.tw/Components/bootstrap/4.5.1/Content/bootstrap.css" />
+    <link rel="stylesheet" href="https://MDevWS.csh.org.tw/Components/bootstrap/4.5.1/Content/bootstrap-grid.css">
+    <link rel="stylesheet" href="https://MDevWS.csh.org.tw/Components/FontAwesome/5.13.0/content/brands.css" />
+    <link rel="stylesheet" href="https://MDevWS.csh.org.tw/Components/FontAwesome/5.13.0/content/solid.css" />
+    <link rel="stylesheet" href="~/Content/style/login.css">
+
+    <script type="text/javascript" src="https://MDevWS.csh.org.tw/Components/jQuery/3.5.1/Scripts/jQuery-3.5.1.js"></script>
+</head>
+<body>
+    @if (TempData["message"] != null)
+    {
+        <script type="text/javascript">
+        var message = @Html.Raw(Json.Encode(TempData["message"]));
+        alert(message);
+        </script>
+    }
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 center margin-top-300centsrem">
+                <img class="img-logo" src="https://MDevWS.csh.org.tw/AppWebSite/AppPharmacy/Resources/img/csh_logo.png" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 center margin-top-300centsrem">
+                @using (Html.BeginForm("Login", ViewContext.RouteData.Values["controller"].ToString(), FormMethod.Post))
+                {
+                    <div class="login-content margin-left-200centsrem margin-right-200centsrem">
+                        <div class="input-div one">
+                            <div class="i">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="div">
+                                <h5>HIS 帳號</h5>
+                                <input type="text" class="input" id="account" name="account">
+                            </div>
+                        </div>
+                        <div class="input-div pass">
+                            <div class="i">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="div">
+                                <h5>HIS 密碼</h5>
+                                <input type="password" class="input" id="password" name="password">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-lg btn-block login">登入</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div>
+        <footer class="fixed-bottom bg-light text-center">
+            <hr class="margin-top-50centsrem margin-btn-50centsrem" />
+            <p class="margin-btn-50centsrem">中山醫學大學附設醫院-資訊室</p>
+        </footer>
+    </div>
+    <script type="text/javascript" src="https://MDevWS.csh.org.tw/Components/bootstrap/4.5.1/Scripts/bootstrap.js"></script>
+    <script type="text/javascript" src="https://MDevWS.csh.org.tw/Components/bootstrap/4.5.1/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://MDevWS.csh.org.tw/Components/bootstrap/4.5.1/Scripts/bootstrap.bundle.js"></script>
+    <script type="text/javascript" src="https://MDevWS.csh.org.tw/Components/Modernizr/2.8.3/Scripts/modernizr-2.8.3.js"></script>
+    <script type="text/javascript" src="https://MDevWS.csh.org.tw/Components/FontAwesome/5.13.0/Scripts/all.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/login.js"></script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,1618 @@
+﻿@model WebSite.AppInPtUddWork.ViewModels.UddWorkViewModel
+
+@{
+    ViewBag.Title = "InPtUddWork";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>檢藥</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://MDevWS.csh.org.tw/Components/bootstrap/5.2.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://MDevWS.csh.org.tw/Components/FontAwesome/6.1.2/css/all.css" /><!-- JavaScript Bundle with Popper -->
+    <link href="../Content/style/inptuddwork-style.css" rel="stylesheet">
+</head>
+<body>
+    <form id="go" method="get">
+        <input type="hidden" name="bedid" id="bedid" value="" />
+    </form>
+    <div class="pad">
+        <header>
+            <div class="header_div">
+                <img src="~/images/back.png" class="back_img" style="position: absolute;left: 10px; top: 12px; " />
+                <p class="header_title">@Model.headler.title</p>
+                <div style=" position: absolute; width: 125px; display: flex; right: 0; top: 8px;">
+                    <div style=" width: 70px; border: 1px solid white; display: flex; border-radius: 5px; height: 36px;" class="change_line_block">
+                        <div class="border_box"></div>
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="list-ul" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-list-ul fa-lg line_btn"><path fill="currentColor" d="M16 96C16 69.49 37.49 48 64 48C90.51 48 112 69.49 112 96C112 122.5 90.51 144 64 144C37.49 144 16 122.5 16 96zM480 64C497.7 64 512 78.33 512 96C512 113.7 497.7 128 480 128H192C174.3 128 160 113.7 160 96C160 78.33 174.3 64 192 64H480zM480 224C497.7 224 512 238.3 512 256C512 273.7 497.7 288 480 288H192C174.3 288 160 273.7 160 256C160 238.3 174.3 224 192 224H480zM480 384C497.7 384 512 398.3 512 416C512 433.7 497.7 448 480 448H192C174.3 448 160 433.7 160 416C160 398.3 174.3 384 192 384H480zM16 416C16 389.5 37.49 368 64 368C90.51 368 112 389.5 112 416C112 442.5 90.51 464 64 464C37.49 464 16 442.5 16 416zM112 256C112 282.5 90.51 304 64 304C37.49 304 16 282.5 16 256C16 229.5 37.49 208 64 208C90.51 208 112 229.5 112 256z" class=""></path></svg>
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="grid-2" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-grid-2 fa-lg block_btn"><path fill="currentColor" d="M192 176C192 202.5 170.5 224 144 224H48C21.49 224 0 202.5 0 176V80C0 53.49 21.49 32 48 32H144C170.5 32 192 53.49 192 80V176zM192 432C192 458.5 170.5 480 144 480H48C21.49 480 0 458.5 0 432V336C0 309.5 21.49 288 48 288H144C170.5 288 192 309.5 192 336V432zM256 80C256 53.49 277.5 32 304 32H400C426.5 32 448 53.49 448 80V176C448 202.5 426.5 224 400 224H304C277.5 224 256 202.5 256 176V80zM448 432C448 458.5 426.5 480 400 480H304C277.5 480 256 458.5 256 432V336C256 309.5 277.5 288 304 288H400C426.5 288 448 309.5 448 336V432z" class=""></path></svg>
+                    </div>
+                    <div id="dropdownMenuButton1" style="float: right; width: 35px; height: 35px; margin-left: 10px; margin-top: -3px; font-size: 30px; color: white;">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                    <div class="dropdown" style="right: 20rem; top: 0.5rem">
+                        <ul class="dropdown-menu dropdown-menu_1" style="width: 200px; font-size: 18px; font-weight: 500;">
+                            <li><a class="dropdown-item" href="#">回首頁</a></li>
+                            <li><a class="dropdown-item" href="SelectNursingStation">護理站</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <div>
+                <div class="patient_info_main">
+                    <div class="patient_info_main_div">
+                        <p>患者&nbsp;:&nbsp; @Model.headler.chartNo &nbsp; @Model.headler.ptName &nbsp; @Model.headler.sex &nbsp; @Model.headler.birthday &nbsp; @Model.headler.age &nbsp;體重&nbsp;:&nbsp; @Model.headler.weight</p>
+                    </div>
+                    <div class="patient_info_sec">
+                        <p style="display: inline-block;">床號&nbsp;:&nbsp; @Model.headler.roombed &nbsp;科別&nbsp;:&nbsp; @Model.headler.division &nbsp;主治醫師&nbsp;:&nbsp; @Model.headler.doctor &nbsp;</p>
+                        <div style=" float:right;position:relative">
+                            <div style=" display: flex;">
+                                <div class="header_div_button prn_btn" style="background-color: #1b8ba9; color: white;">
+                                    <p>PRN</p>
+                                </div>
+                                <div class="header_div_button 33block_btn" style=" background-color: #2362ab; color: white; ">
+                                    <p>檢驗報告</p>
+                                </div>
+                            </div>
+                            <div style="position: absolute; top: 50px; right: 10px; z-index: 1000;  ">
+                                <div class="prn">
+                                    <div class="block_header">
+                                        <p>PRN</p>
+                                    </div>
+                                    <div class="block_content" style="height: 240px; overflow: scroll; width: 100%">
+                                        @foreach (var PRN in Model.prnOrderList)
+                                        {
+                                            <div class="PRN_div">
+                                                <p>@PRN.ItemName</p>
+                                                <p style=" font-size: 16px; color: rgb(255 255 255 / 65%); ">@PRN.GenericName</p>
+                                                <div class="PRN_div_sub">
+                                                    <p style="color: rgb(255 255 255 / 50%);">劑量:</p> <p>@PRN.Dose</p>
+                                                    <p style="color: rgb(255 255 255 / 50%);">頻率:</p> <p>@PRN.UsageNo</p>
+                                                    <p style="color: rgb(255 255 255 / 50%);">途徑:</p> <p>@PRN.WayNo</p>
+                                                    <p style="color: rgb(255 255 255 / 50%);">總量:</p> <p>@PRN.Qty</p>
+                                                    <p style="color: rgb(255 255 255 / 50%);">單位:</p> <p>@PRN.DoseUnit</p>
+                                                </div>
+                                            </div>
+                                            <hr />
+                                        }
+                                    </div>
+                                </div>
+                                <div class="_33block">
+                                    <div class="block_header">
+                                        <p>檢驗報告</p>
+                                    </div>
+                                    <div class="block_content">
+                                        <table>
+                                            <tr>
+                                                <td><p style="color: rgb(255 255 255 / 50%);">ALT</p></td>
+                                                <td><p>@Model.labReport.ALT</p></td>
+                                                <td><p style="color: rgb(255 255 255 / 50%);">AST</p></td>
+                                                <td><p>@Model.labReport.AST</p></td>
+                                                <td colspan="2"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><p style="color: rgb(255 255 255 / 50%);">CRE</p></td>
+                                                <td><p>@Model.labReport.CRE</p></td>
+                                                <td><p style="color: rgb(255 255 255 / 50%);">CrCl</p></td>
+                                                <td><p>@Model.labReport.CrCl</p></td>
+                                                <td><p style="color: rgb(255 255 255 / 50%);">IBW</p></td>
+                                                <td><p>@Model.labReport.IBW</p></td>
+                                            </tr>
+                                            <tr>
+                                                <td><p style="color: rgb(255 255 255 / 50%);">eGFR</p></td>
+                                                <td><p>@Model.labReport.eGFR</p></td>
+                                                <td><p style="color: rgb(255 255 255 / 50%);">CONC</p></td>
+                                                <td><p>@Model.labReport.Blood</p></td>
+                                                <td><p style="color: rgb(255 255 255 / 50%);">BSA</p></td>
+                                                <td><p>@Model.labReport.BSA</p></td>
+                                            </tr>
+                                            <tr>
+                                                <td rowspan="10"><p>ADR</p></td>
+                                            </tr>
+                                            @foreach (var item in Model.labReport.ADR)
+                                            {
+                                                <tr>
+                                                    <td colspan="5"><p>@item.ItemNameDesc</p></td>
+                                                </tr>
+                                            }
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="patient_info_sec_open expand">
+                    <p class="p_in_sec_open">主診斷&nbsp;:&nbsp; @Model.headler.chtName</p>
+                    <p class="p_in_sec_open" style="color: #b70202;">
+                        @{ if (Model.headler.allergy != "") { Write("藥物過敏 : " + Model.headler.allergy); }
+                        }
+                    </p>
+                    <p class="p_in_sec_open">
+                        @{ if (Model.headler.labReport != "") { Write("檢查報告 : " + Model.headler.labReport); }
+                        }
+                    </p>
+                    <p class="p_in_sec_open">
+                        @{ if (Model.headler.doseModification != "") { Write("劑量調整 : " + Model.headler.doseModification); }
+
+
+                        }
+                    </p>
+                    <div class="p_in_sec_open">
+                        @{
+                            var n = Model.interList.Count;
+                            int i = 0;
+                            foreach (var interatction in Model.interList)
+                            {
+                                if (interatction.Significance != 0)
+                                {
+                                    if (i == 0)
+                                    {
+                                        <p style="display:inline">交互作用&nbsp;:&nbsp;</p>
+                                    }
+                                    else
+                                    {
+                                        <br />
+                                    }
+                                    i++;
+                                    <p class="p_interatction interatction_@i" value="@i" style="display:inline">
+                                        @interatction.ItemCode1-@interatction.ItemName1 , @interatction.ItemCode2-@interatction.ItemName2 &nbsp; [&nbsp;級數&nbsp;:&nbsp; @interatction.Significance &nbsp;]
+                                    </p>
+                                    <div class="interatction_hidden interatction_detail_@i">
+                                        <p>[&nbsp;機轉&nbsp;:&nbsp; @interatction.Mechanism &nbsp;]</p>
+                                        <p>[&nbsp;管理&nbsp;:&nbsp; @interatction.Management &nbsp;]</p>
+                                    </div>
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="img_center_div"><img src="~/images/dropdown.png" class="img_open img_expand"></div>
+            </div>
+        </header>
+        <div class="body_content">
+            @{int white_count = 0; string bgcolor; int med_n = 0; bool isChecked;}
+            <form id="checked" method="post">
+                <input type="hidden" value="model.headler.Roombed" name="roomBed" />
+                <div class="white_space" style="margin-bottom:5px;"></div>
+
+                <div class="row line_style" style="margin: 0; padding: 0;">
+                    @foreach (var item in Model.dataDetailsList)
+                    {
+                        med_n++;
+                        white_count++;
+                        bgcolor = "#ddd";
+                        /*
+                        if (@item.background_color == 1)
+                        {
+                            if (white_count % 2 == 1) { bgcolor = "white"; }
+                            else { bgcolor = "#ddd"; }
+                        }
+                        else if (@item.background_color == 2)
+                        {
+                            bgcolor = "#a4f9a4";
+                        }
+                        else if (@item.background_color == 3)
+                        {
+                            bgcolor = "#ffffa2";
+                        }
+                        else
+                        {
+                            bgcolor = "#f5afaf";
+                        }*/
+                        if (@item.IsSelf == "自費")
+                        {
+                            bgcolor = "#ffffa2";
+                        }
+                        else
+                        {
+                            bgcolor = "#baffba";
+                        }
+
+                        if (item.IsChecked)
+                        {
+                            isChecked = true;
+                        }
+                        else
+                        {
+                            isChecked = false;
+                        }
+                        <input type="hidden" id="isChecked_med_@med_n" name="_checked" value="@isChecked" class="isChecked" />
+                        <div class="body_straight col-12" style="margin: 2px 0; padding: 0; width: 100%; position: relative; overflow-x: hidden; ">
+                            <div class="swipe_box" style="width: calc(100% + 1000px); display: flex; position: relative; ">
+                                <div style="width:500px;display:inline;visibility:hidden;"></div>
+                                <div class="med_content_outside">
+                                    <div class="med_@med_n med_content @{ if (isChecked) { Write("green_border"); } } " value="med_@med_n">
+                                        <div class="mark_content">
+                                            <div class="mark_content_bottom row" style="display:flex; justify-content: space-evenly">
+                                                @{var hid = "";}
+                                                @if (item.Remark == "")
+                                                {
+                                                    hid = "visibility:hidden;";
+                                                }
+                                                <div class="col-4 mark_items remark remark_btn" style="border-radius: 28px; background-color: #ddd; color: green;@hid "><p style="margin-top: 11px; font-size: 12px;">備註</p></div>
+                                                @{hid = "";}
+                                                @if (item.Remark == "")
+                                                {
+                                                    hid = "visibility:hidden;";
+                                                }
+                                                <div class="col-4 mark_items" style="background-color: #313232; color: white;@hid"><p style="margin-top: 4px;">貴</p></div>
+                                                @{hid = "";}
+                                                @if (item.Remark == "")
+                                                {
+                                                    hid = "visibility:hidden;";
+                                                }
+                                                <div class="col-4 mark_items" style="background-color: #2a97f7; color: white;@hid"><p style="margin-top: 4px;">冰</p></div>
+                                                @{hid = "";}
+                                                @if (item.Remark == "")
+                                                {
+                                                    hid = "visibility:hidden;";
+                                                }
+                                                <div class="col-4 mark_items" style="background-color: #ffd522; color: #b51900;@hid"><p style="margin-top: 4px;">警</p></div>
+                                                @{hid = "";}
+                                                @if (item.Remark == "")
+                                                {
+                                                    hid = "visibility:hidden;";
+                                                }
+                                                <div class="col-4 mark_items" style="background-color: #ef3c3c; color: #fff35d;@hid"><p style="margin-top: 4px;">管</p></div>
+                                                @{hid = "";}
+                                                @if (item.Remark == "")
+                                                {
+                                                    hid = "visibility:hidden;";
+                                                }
+                                                <div class="col-4 mark_items" style="background-color: #eb3ff1; color: white;@hid"><p style="margin-top: 4px;">DC</p></div>
+                                            </div>
+                                        </div>
+                                        <div class="med_content_right">
+                                            <div class="med_content_inside">
+                                                <div>
+                                                    <p class="med_name">@item.ItemName </p>
+                                                    <p class="generic_name">@item.GenericName</p>
+                                                </div>
+                                                <div class="left_bottom">
+                                                    <div class="med_detail">
+                                                        <div class="row_div">
+                                                            <div class="col-4_div detail" style="display: flex; align-items:flex-end;">
+                                                                <p>劑量&nbsp;:&nbsp;</p> <p class="items">@item.Dose</p>
+                                                                <p>頻率&nbsp;:&nbsp;</p> <p class="items"> @item.Usage</p>
+                                                                <p>途徑&nbsp;:&nbsp;</p> <p class="items"> @item.Way</p>
+
+                                                                <p style="color: #d1403d">總量&nbsp;:&nbsp;</p><p class="items" style="color: #d1403d">@item.TotQty</p>
+
+                                                                <p class="batch_show" style="color: #d1403d">總量&nbsp;:&nbsp;</p>
+                                                                <p class="items batch_show" style="color: #d1403d; text-decoration: underline;">@item.TotQty</p>
+
+                                                                <p>單位&nbsp;:&nbsp;</p> <p class="items"> @item.DoseUnit</p>
+                                                                <p>磨粉&nbsp;:&nbsp;</p> <p class="items"> @item.IsMill</p>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="med_time"><p>開始時間&nbsp;:&nbsp; @item.StartTime&nbsp;&nbsp;&nbsp;&nbsp;</p><p>結束時間&nbsp;:&nbsp; @item.StartTime</p></div>
+                                                        <div></div>
+                                                    </div>
+                                                    <!---->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="img">
+                                            @{
+                                                var imageUrl = String.Format("http://www.csh.org.tw/into/pharm/Drugimages/{0}.jpg", item.ItemCode);
+                                            }
+                                            <div class="medImg_div"><i class="fa-solid fa-circle-check check_svg jq_med_img"></i><i class="fa-regular fa-circle-check check_svg jq_med_img" style="color: #66cf01"></i><img src="@String.Format("http://www.csh.org.tw/into/pharm/Drugimages/{0}.jpg", item.ItemCode)" class="jq_med_img med_img" value="@item.ItemName"></div>
+                                        </div>
+                                    </div>
+                                    <div class="remark_content">
+                                        <div style="width:calc(100% - 7px);border:1px solid black;border-radius:5px;padding:5px;">
+                                            <p>備註&nbsp;:&nbsp;@item.Remark</p>
+                                        </div>
+                                    </div>
+                                    <div class="remark_white">
+                                        <div style="width: calc(100% - 7px); border: 1px solid black; border-radius: 5px; padding: 5px;">
+                                            <p>備註&nbsp;:&nbsp;@item.Remark</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="width: 500px; visibility: hidden;"></div>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <!--block-->
+                <div class="row block_style" style="margin:0;padding:0;">
+                    @foreach (var item in Model.dataDetailsList)
+                    {
+                        med_n++;
+                        white_count++;
+                        bgcolor = "#ddd";
+                        /*
+                        if (@item.background_color == 1)
+                        {
+                            if (white_count % 2 == 1) { bgcolor = "white"; }
+                            else { bgcolor = "#ddd"; }
+                        }
+                        else if (@item.background_color == 2)
+                        {
+                            bgcolor = "#a4f9a4";
+                        }
+                        else if (@item.background_color == 3)
+                        {
+                            bgcolor = "#ffffa2";
+                        }
+                        else
+                        {
+                            bgcolor = "#f5afaf";
+                        }*/
+                        if (@item.IsSelf == "自費")
+                        {
+                            bgcolor = "#ffffa2";
+                        }
+                        else
+                        {
+                            bgcolor = "#baffba";
+                        }
+
+                        if (item.IsChecked)
+                        {
+                            isChecked = true;
+                        }
+                        else
+                        {
+                            isChecked = false;
+                        }
+                        <input type="hidden" id="" name="_checked" value="@isChecked" class="isChecked" />
+                        <div class="body_block col-6" style="margin: 2px 0; padding: 0;position: relative; overflow-x: hidden; ">
+                            <div class="swipe_box" style="width: calc(100% + 1000px); display: flex; position: relative; ">
+                                <div style="width:495px;display:inline;visibility:hidden;margin-right:5px;"></div>
+                                <div class="med_@med_n med_content_block @{ if (isChecked) { Write("green_border"); } } " value="med_@med_n">
+
+                                    <div class="med_content_right_block">
+                                        <div class="med_content_inside_block">
+                                            <div style="padding: 0 5px;padding-top:3px;">
+                                                <p class="med_name">@item.ItemName </p>
+                                                <p class="generic_name">學名&nbsp;:&nbsp; @item.GenericName</p>
+                                            </div>
+                                            <div class="left_bottom">
+                                                <div class="med_detail">
+                                                    <div class="row_div" style="padding: 0 5px;">
+                                                        <div class="col-4_div detail">
+                                                            <p>劑量&nbsp;:&nbsp;</p> <p class="items">@item.Dose</p>
+                                                            <p class="items"> @item.Usage</p>
+                                                            <p class="items"> @item.Way</p>
+                                                            <p style="color: #d1403d">總量&nbsp;:&nbsp;</p> <p class="items" style="color: #d1403d"> @item.TotQty</p>
+                                                            <p>單位&nbsp;:&nbsp;</p> <p class="items"> @item.DoseUnit</p>
+                                                            <p>磨粉&nbsp;:&nbsp;</p> <p class="items"> @item.IsMill</p>
+
+                                                        </div>
+
+                                                    </div>
+                                                    <div style="display:flex;width:100%;">
+                                                        <div class="med_time_block">
+                                                            <p class="med_time_p" style="padding: 0 5px;">開始時間&nbsp;:&nbsp; @item.StartTime&nbsp;&nbsp;&nbsp;&nbsp;</p><p class="med_time_p" style="padding: 0 5px;">結束時間&nbsp;:&nbsp; @item.StartTime</p>
+                                                            <div style="width:250px;">
+                                                                <div class="mark_content_bottom row" style="width=100%;">
+                                                                    <div class="col-2" style="padding:0 5px;">
+                                                                        @if (item.Remark != "")
+                                                                        {
+                                                                            <div class="mark_items_block remark remark_btn" style="border-radius: 28px; background-color: #ddd; color: green "><p style="font-size: 16px;">備註</p></div>
+                                                                        }
+                                                                    </div>
+                                                                    <div class="col-2" style="padding:0 5px;">
+                                                                        @if (item.Remark != "")
+                                                                        {
+                                                                            <div class="mark_items_block" style="background-color: #313232; color: white;"><p>貴</p></div>
+                                                                        }
+                                                                    </div>
+                                                                    <div class="col-2" style="padding:0 5px;">
+                                                                        @if (item.Remark != "")
+                                                                        {
+                                                                            <div class="mark_items_block" style="background-color: #2a97f7; color: white;"><p>冰</p></div>
+                                                                        }
+                                                                    </div>
+                                                                    <div class="col-2" style="padding:0 5px;">
+                                                                        @if (item.Remark != "")
+                                                                        {
+                                                                            <div class="mark_items_block" style="background-color: #ffd522; color: #b51900;"><p>警</p></div>
+                                                                        }
+                                                                    </div>
+                                                                    <div class="col-2" style="padding:0 5px;">
+                                                                        @if (item.Remark != "")
+                                                                        {
+                                                                            <div class="mark_items_block" style="background-color: #ef3c3c; color: #fff35d;"><p>管</p></div>
+                                                                        }
+                                                                    </div>
+                                                                    <div class="col-2" style="padding:0 5px;">
+                                                                        @if (item.Remark != "")
+                                                                        {
+                                                                            <div class="mark_items_block" style="background-color: #eb3ff1; color: white;"><p>DC</p></div>
+                                                                        }
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="img_block">
+                                                            <div class="medImg_div"><i class="fa-solid fa-circle-check check_svg jq_med_img" style="left:initial; right:12px;margin-right: 5px;"></i><i class="jq_med_img fa-regular fa-circle-check check_svg" style="color: #66cf01; left: initial; right: 12px; margin:auto;margin-right: 5px; "></i><img src="@String.Format("http://www.csh.org.tw/into/pharm/Drugimages/{0}.jpg", item.ItemCode)" class="jq_med_img med_img" value="@item.ItemName" style="margin-right:5px;"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!---->
+                                            </div>
+                                        </div>
+                                        <div class="remark_content">
+                                            <div style="width: calc(100% - 7px); border: 1px solid black; border-radius: 5px; padding: 5px;">
+                                                <p>備註&nbsp;:&nbsp;@item.Remark</p>
+                                            </div>
+                                        </div>
+                                        <div class="remark_white">
+                                            <div style="width: calc(100% - 7px); border: 1px solid black; border-radius: 5px; padding: 5px;">
+                                                <p>備註&nbsp;:&nbsp;@item.Remark</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="width: 495px; visibility: hidden;margin-right:5px;"></div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </form>
+        </div>
+        <div class="footer_white_space"></div>
+        <div class="footer_div">
+            <div class="btn_outside_div_left">
+                @if (ViewBag.lastPId != "")
+                {
+                    <div class="last">
+                        <div style="height: 65px; text-align: center; justify-content: center; align-items: center;display:flex;">
+                            <i class="fa-solid fa-angles-left angles"></i>
+                        </div>
+                        <div style="height:65px;justify-content:center;align-items:center;display:flex;">
+                            <div style="text-align: center;">
+                                <i class="fa-solid fa-bed bed"></i>
+                                <p class="bed_font">@ViewBag.lastPId</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+            <div class="btn_outside_div_right">
+                <div style="position: absolute; right: 10px; text-align: center; display: flex; align-items: center;">
+                    @*<div class="div_button" style="background-color:#ddd"><p class="check_finished_p">出院</p></div>*@
+                    <div class="check_finished div_button all_check"><p class="check_finished_p">一鍵完成</p></div>
+                    @if (ViewBag.nextPId != "")
+                    {
+                        <div class="next">
+                            <div style="height:65px;justify-content:center;align-items:center;display:flex;">
+                                <div style="text-align: center;">
+                                    <i class="fa-solid fa-bed bed"></i>
+                                    <p class="bed_font">@ViewBag.nextPId</p>
+                                </div>
+
+                            </div>
+                            <div style="height: 65px; text-align: center; justify-content: center; align-items: center;display:flex;">
+                                <i class="fa-solid fa-angles-right angles"></i>
+                            </div>
+
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="big_img_back">
+        <div class="big_img_front">
+            <div class="modal_content">
+                <div class="modal_content_column">
+                    <div class="column_left">
+                        <p>廠商名稱:</p>
+                    </div>
+                    <div class="column_right">
+                        <p id="Manufactory" class="drugInfo" style="color:blue;"></p>
+                    </div>
+                </div>
+                <div class="modal_content_column">
+                    <div class="column_left">
+                        <p>藥品英文名稱:</p>
+                    </div>
+                    <div class="column_right">
+                        <p id="TradeName" class="drugInfo" style="color:blue;"></p>
+                    </div>
+                </div>
+                <div class="modal_content_column">
+                    <div class="column_left">
+                        <p>藥品中文名稱:</p>
+                    </div>
+                    <div class="column_right">
+                        <p id="ChineseName" class="drugInfo" style="color:blue;"></p>
+                    </div>
+                </div>
+                <div class="modal_content_column">
+                    <div class="column_left">
+                        <p>院內代碼:</p>
+                    </div>
+                    <div class="column_right">
+                        <p id="ItemCode" class="drugInfo"></p>
+                    </div>
+                </div>
+                <div class="modal_content_column">
+                    <div class="column_left">
+                        <p>主成分及含量:</p>
+                    </div>
+                    <div class="column_right">
+                        <p id="GenericName" class="drugInfo"></p>
+                    </div>
+                </div>
+                <div class="modal_content_column">
+                    <div class="column_left">
+                        <p>適應症(藥袋列印):</p>
+                    </div>
+                    <div class="column_right">
+                        <p id="IndicationsA1" class="drugInfo"></p>
+                    </div>
+                </div>
+                <div class="modal_content_column">
+                    <div class="column_left">
+                        <p>適應症:</p>
+                    </div>
+                    <div class="column_right">
+                        <p id="IndicationsA2" class="drugInfo"></p>
+                    </div>
+                </div>
+                <div class="modal_content_column">
+                    <div class="column_left">
+                        <p>用法用量:</p>
+                    </div>
+                    <div class="column_right">
+                        <p id="AdultDosing" class="drugInfo"></p>
+                    </div>
+                </div>
+                <div class="modal_content_column">
+                    <div class="column_left">
+                        <p>副作用(藥袋列印):</p>
+                    </div>
+                    <div class="column_right">
+                        <p id="AdverseEffectsA1" class="drugInfo"></p>
+                    </div>
+                </div>
+                <div class="modal_content_column">
+                    <div class="column_left">
+                        <p>副作用:</p>
+                    </div>
+                    <div class="column_right">
+                        <p id="AdverseEffectsA2" class="drugInfo"></p>
+                    </div>
+                </div>
+                <div class="modal_content_column">
+                    <div class="column_left">
+                        <p>禁忌:</p>
+                    </div>
+                    <div class="column_right">
+                        <p id="Contraindication" class="drugInfo"></p>
+                    </div>
+                </div>
+                <div class="modal_content_column">
+                    <div class="column_left">
+                        <p>其他注意事項:</p>
+                    </div>
+                    <div class="column_right">
+                        <p id="Precautions" class="drugInfo"></p>
+                    </div>
+                </div>
+                <div class="modal_content_column">
+                    <div class="column_left">
+                        <p>健保規範:</p>
+                    </div>
+                    <div class="column_right">
+                        <p id="NhiNorm" class="drugInfo"></p>
+                    </div>
+                </div>
+                <div class="modal_content_column">
+                    <div class="column_left">
+                        <p>配置方法:</p>
+                    </div>
+                    <div class="column_right">
+                        <p id="Dispose" class="drugInfo"></p>
+                    </div>
+                </div>
+                <div class="modal_content_column">
+                    <div class="column_left">
+                        <p>儲存方法:</p>
+                    </div>
+                    <div class="column_right">
+                        <p id="Storage" class="drugInfo"></p>
+                    </div>
+                </div>
+                <div class="modal_content_column">
+                    <div class="column_left">
+                        <p>懷孕分級:</p>
+                    </div>
+                    <div class="column_right">
+                        <p id="Pregnancy" class="drugInfo"></p>
+                    </div>
+                </div>
+                <div class="modal_content_column">
+                    <div class="column_left">
+                        <p>警訊藥品:</p>
+                    </div>
+                    <div class="column_right">
+                        <p id="HighAlert" class="drugInfo"></p>
+                    </div>
+                </div>
+                <div class="modal_content_column">
+                    <div class="column_left">
+                        <p>輸液速率:</p>
+                    </div>
+                    <div class="column_right">
+                        <p id="Injection" class="drugInfo"></p>
+                    </div>
+                </div>
+                <div class="modal_content_column">
+                    <div class="column_left">
+                        <p>開封後有效時數:</p>
+                    </div>
+                    <div class="column_right">
+                        <p id="ExpireHourDesc" class="drugInfo"></p>
+                    </div>
+                </div>
+                <div class="modal_content_bottom">
+                    <div class="modal_content_bottom_left">
+                        <p>藥品圖示:</p>
+                        <img src="" id="DrugImg" class="drugImg" />
+                    </div>
+                    <div class="modal_content_bottom_right">
+                        <p>包裝圖示:</p>
+                        <img src="" id="DrugPkgImg" class="drugImg" />
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="batch_detail_back" style="display: none;">
+        <div class="batch_detail_front">
+            <div class="batch_detail">
+                <table>
+                    <tr>
+                        <td class="batch_title" colspan="4"><p style="color: black; font-size:3rem; font-weight:900" id="BatchItemName">藥品名稱</p></td>
+                    </tr>
+                    <tr>
+                        <td class="batch_title"><p style="color: black;">批號:</p></td>
+                        <td class="batch_item"><p>ABXXXOOXX</p></td>
+                        <td class="batch_title"><p style="color: black">用量:</p></td>
+                        <td class="batch_item"><p>1.00</p></td>
+                    </tr>
+                    <tr>
+                        <td class="batch_title"><p style="color: black;">批號:</p></td>
+                        <td class="batch_item"><p>BOOOXXOO</p></td>
+                        <td class="batch_title"><p style="color: black">用量:</p></td>
+                        <td class="batch_item"><p>20.00</p></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!----------------mobile------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+    <div class="mobile">
+        <div class="mobile_header">
+            <div class="mobile_header_div">
+                <img src="~/images/back.png" class="mobile_back_img" style="position: absolute;left: 10px; top: 12px; " />
+                <p class="mobile_header_title">@Model.headler.title</p>
+                <div style=" position: absolute; width: 90px; display: flex; right: 0; top: 8px;">
+                    <div style=" width: 49px; border: 1px solid white; display: flex; border-radius: 5px; height: 26px; margin-right: 3px;" class="change_line_block">
+                        <div class="mobile_border_box"></div>
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="list-ul" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-list-ul fa-lg mobile_line_btn"><path fill="currentColor" d="M16 96C16 69.49 37.49 48 64 48C90.51 48 112 69.49 112 96C112 122.5 90.51 144 64 144C37.49 144 16 122.5 16 96zM480 64C497.7 64 512 78.33 512 96C512 113.7 497.7 128 480 128H192C174.3 128 160 113.7 160 96C160 78.33 174.3 64 192 64H480zM480 224C497.7 224 512 238.3 512 256C512 273.7 497.7 288 480 288H192C174.3 288 160 273.7 160 256C160 238.3 174.3 224 192 224H480zM480 384C497.7 384 512 398.3 512 416C512 433.7 497.7 448 480 448H192C174.3 448 160 433.7 160 416C160 398.3 174.3 384 192 384H480zM16 416C16 389.5 37.49 368 64 368C90.51 368 112 389.5 112 416C112 442.5 90.51 464 64 464C37.49 464 16 442.5 16 416zM112 256C112 282.5 90.51 304 64 304C37.49 304 16 282.5 16 256C16 229.5 37.49 208 64 208C90.51 208 112 229.5 112 256z" class=""></path></svg>
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="grid-2" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-grid-2 fa-lg mobile_block_btn"><path fill="currentColor" d="M192 176C192 202.5 170.5 224 144 224H48C21.49 224 0 202.5 0 176V80C0 53.49 21.49 32 48 32H144C170.5 32 192 53.49 192 80V176zM192 432C192 458.5 170.5 480 144 480H48C21.49 480 0 458.5 0 432V336C0 309.5 21.49 288 48 288H144C170.5 288 192 309.5 192 336V432zM256 80C256 53.49 277.5 32 304 32H400C426.5 32 448 53.49 448 80V176C448 202.5 426.5 224 400 224H304C277.5 224 256 202.5 256 176V80zM448 432C448 458.5 426.5 480 400 480H304C277.5 480 256 458.5 256 432V336C256 309.5 277.5 288 304 288H400C426.5 288 448 309.5 448 336V432z" class=""></path></svg>
+                    </div>
+                    <div id="dropdownMenuButton2" style="float: right; width: 35px; height: 35px; margin-top: -3px; font-size: 22px; color: white">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                    <div class="dropdown" style="right: 20rem; top: 0.5rem">
+                        <ul class="dropdown-menu mobile_dropdown_menu dropdown-menu_2" aria-labelledby="dropdownMenuButton2" style="width: 80px; font-size: 12px; font-weight: 500;">
+                            <li><a class="dropdown-item" href="#">回首頁</a></li>
+                            <li><a class="dropdown-item" href="SelectNursingStation">護理站</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="patient_info_main" style=" border-bottom: 2px solid #484848;">
+                    <div class="patient_info_main_div" style="margin:0;">
+                        <p style="font-size: 14px;">患者:&nbsp;@Model.headler.chartNo&nbsp;@Model.headler.ptName&nbsp;@Model.headler.sex&nbsp;@Model.headler.birthday @Model.headler.age</p>
+                    </div>
+                    <div class="patient_info_sec">
+                        <p style="display: inline-block;margin:0;font-size:12px;">床號&nbsp;:&nbsp;@Model.headler.roombed&nbsp;科別&nbsp;:&nbsp;@Model.headler.division &nbsp;主治醫師&nbsp;:&nbsp;@Model.headler.doctor&nbsp;</p>
+                        <div style=" float:right;position:relative">
+                            <div style=" display: flex;">
+                                <div class="mobile_header_div_button prn_btn" style="background-color: #1b8ba9; color: white;">
+                                    <p style="margin:0;font-size:12px;">PRN</p>
+                                </div>
+                                <div class="mobile_header_div_button 33block_btn" style=" background-color: #2362ab; color: white; ">
+                                    <p style="margin:0;font-size:12px;">檢驗報告</p>
+                                </div>
+                            </div>
+                            <div style="position: absolute; top: 20px; right: -3px; z-index: 1000;">
+                                <div class="prn" style="width: 300px;">
+                                    <div class="block_header" style=" height: 22px;">
+                                        <p style=" font-size: 16px;">PRN</p>
+                                    </div>
+                                    <div class="block_content" style="height: 240px; overflow: scroll; width: 100%">
+                                        @foreach (var PRN in Model.prnOrderList)
+                                        {
+                                            <div class="PRN_div">
+                                                <p style="font-size: 18px; margin: -3px 5px;">@PRN.ItemName</p>
+                                                <p style="font-size: 14px; margin: 0px 5px; color: rgb(255 255 255 / 75%)">@PRN.GenericName</p>
+                                                <div class="PRN_div_sub">
+                                                    <table style="width: 100%">
+                                                        <tr>
+                                                            <td style=" border-right: 3px solid white;"><p style="font-size: 12px; color: rgb(255 255 255 / 50%)">劑量:</p></td>
+                                                            <td style=" border-right: 3px solid white;"><p style="font-size: 12px; color: rgb(255 255 255 / 50%)">頻率:</p></td>
+                                                            <td><p style="font-size: 12px; color: rgb(255 255 255 / 50%)">途徑:</p></td>
+                                                        </tr>
+                                                        <tr style=" border-bottom: 3px solid white;">
+                                                            <td style=" border-right: 3px solid white;"><p>@PRN.Dose</p></td>
+                                                            <td style=" border-right: 3px solid white;"><p>@PRN.UsageNo</p></td>
+                                                            <td><p style="color: rgb(255 255 255 / 50%)">@PRN.WayNo</p></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style=" border-right: 3px solid white;"><p style="font-size: 12px; color: rgb(255 255 255 / 50%)">總量:</p></td>
+                                                            <td style=" border-right: 3px solid white;"><p style="font-size: 12px; color: rgb(255 255 255 / 50%)">單位:</p></td>
+                                                            <td><p style="font-size: 12px; color: rgb(255 255 255 / 50%)">磨粉:</p></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style=" border-right: 3px solid white;"><p>@PRN.Qty</p></td>
+                                                            <td style=" border-right: 3px solid white;"><p>@PRN.DoseUnit</p></td>
+                                                            <td><p>@PRN.IsMill</p></td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <hr />
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="_33block" style="width: 300px;">
+                                    <div class="block_header" style=" height: 22px;">
+                                        <p style=" font-size: 16px;">檢驗報告</p>
+                                    </div>
+                                    <div class="block_content">
+                                        <table class="mobile_Lab_table">
+                                            <tr>
+                                                <td style=" border-right: 3px solid white;"><p>ALT</p></td>
+                                                <td style=" border-right: 3px solid white;"><p>AST</p></td>
+                                                <td rowspan="2"></td>
+                                            </tr>
+                                            <tr style=" border-bottom: 3px solid white;">
+                                                <td style=" border-right: 3px solid white;"><p>@Model.labReport.ALT</p></td>
+                                                <td style=" border-right: 3px solid white;"><p>@Model.labReport.AST</p></td>
+                                            </tr>
+                                            <tr>
+                                                <td style=" border-right: 3px solid white;"><p>CRE</p></td>
+                                                <td style=" border-right: 3px solid white;"><p>CrCl</p></td>
+                                                <td><p>IBW</p></td>
+                                            </tr>
+                                            <tr style=" border-bottom: 3px solid white;">
+                                                <td style=" border-right: 3px solid white;"><p>@Model.labReport.CRE</p></td>
+                                                <td style=" border-right: 3px solid white;"><p>@Model.labReport.CrCl</p></td>
+                                                <td><p>@Model.labReport.IBW</p></td>
+                                            </tr>
+                                            <tr>
+                                                <td style=" border-right: 3px solid white;"><p>eGFR</p></td>
+                                                <td style=" border-right: 3px solid white;"><p>CONC</p></td>
+                                                <td><p>BSA</p></td>
+                                            </tr>
+                                            <tr style=" border-bottom: 3px solid white;">
+                                                <td style=" border-right: 3px solid white;"><p>@Model.labReport.eGFR</p></td>
+                                                <td style=" border-right: 3px solid white;"><p>@Model.labReport.Blood</p></td>
+                                                <td><p>@Model.labReport.BSA</p></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3" style="text-align: center"><p>ADR</p></td>
+                                            </tr>
+                                            @foreach (var item in Model.labReport.ADR)
+                                            {
+                                                <tr>
+                                                    <td colspan="3"><p>@item.ItemNameDesc</p></td>
+                                                </tr>
+                                            }
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="patient_info_sec_open expand">
+                    <p class="mobile_p_in_sec_open">主診斷&nbsp;:&nbsp; @Model.headler.chtName</p>
+                    <p class="mobile_p_in_sec_open" style="color: #b70202;">
+                        @{ if (Model.headler.allergy != "") { Write("藥物過敏 : " + Model.headler.allergy); }
+                        }
+                    </p>
+                    <p class="mobile_p_in_sec_open">
+                        @{ if (Model.headler.labReport != "") { Write("檢查報告 : " + Model.headler.labReport); }
+                        }
+                    </p>
+                    <p class="mobile_p_in_sec_open">
+                        @{ if (Model.headler.doseModification != "") { Write("劑量調整 : " + Model.headler.doseModification); }
+
+
+                        }
+                    </p>
+                    <div class="mobile_p_in_sec_open">
+                        @{
+                            n = Model.interList.Count;
+                            i = 0;
+                            foreach (var interatction in Model.interList)
+                            {
+                                if (interatction.Significance != 0)
+                                {
+                                    if (i == 0)
+                                    {
+                                        <p style="display:inline">交互作用&nbsp;:&nbsp;</p>
+                                    }
+                                    else
+                                    {
+                                        <br />
+                                    }
+                                    i++;
+                                    <p class="p_interatction interatction_@i" value="@i" style="display:inline">
+                                        @interatction.ItemName1 &nbsp; @interatction.ItemName2 &nbsp; [&nbsp;級數&nbsp;:&nbsp; @interatction.Significance &nbsp;]
+                                    </p>
+                                    <div class="interatction_hidden interatction_detail_@i">
+                                        <p>[&nbsp;機轉&nbsp;:&nbsp; @interatction.Mechanism &nbsp;]</p>
+                                        <p>[&nbsp;管理&nbsp;:&nbsp; @interatction.Management &nbsp;]</p>
+                                    </div>
+
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="img_center_div" style=" border-bottom: 2px solid #484848;"><img src="~/images/dropdown.png" class="img_open img_expand" style="width: 15px;"></div>
+            </div>
+        </div>
+
+        <div class="body_content">
+            @{white_count = 0; med_n = 0;}
+            <form id="mobile_checked" method="post">
+                <input type="hidden" value="model.headler.Roombed" name="roomBed" />
+                <div class="mobile_white_space" style="margin-bottom:5px;"></div>
+
+                <div class="row line_style" style="margin: 0; padding: 0;">
+                    @foreach (var item in Model.dataDetailsList)
+                    {
+                        med_n++;
+                        white_count++;
+                        bgcolor = "#ddd";
+                        /*
+                        if (@item.background_color == 1)
+                        {
+                            if (white_count % 2 == 1) { bgcolor = "white"; }
+                            else { bgcolor = "#ddd"; }
+                        }
+                        else if (@item.background_color == 2)
+                        {
+                            bgcolor = "#a4f9a4";
+                        }
+                        else if (@item.background_color == 3)
+                        {
+                            bgcolor = "#ffffa2";
+                        }
+                        else
+                        {
+                            bgcolor = "#f5afaf";
+                        }*/
+                        if (@item.IsSelf == "自費")
+                        {
+                            bgcolor = "#ffffa2";
+                        }
+                        else
+                        {
+                            bgcolor = "#baffba";
+                        }
+
+                        if (item.IsChecked)
+                        {
+                            isChecked = true;
+                        }
+                        else
+                        {
+                            isChecked = false;
+                        }
+                        <input type="hidden" id="isChecked_med_@med_n" name="_checked" value="@isChecked" class="isChecked" />
+                        <div class="body_straight col-12" style="margin: 2px 0; padding: 0; width: 100%; position: relative; overflow-x: hidden; ">
+                            <div class="swipe_box" style="width: calc(100% + 1000px); display: flex; position: relative; ">
+                                <div style="width:500px;display:inline;visibility:hidden;"></div>
+                                <div class="med_@med_n med_content_block @{ if (isChecked) { Write("green_border"); } } " value="med_@med_n" style="margin-left: 3px;">
+
+                                    <div class="med_content_right_block">
+                                        <div class="med_content_inside_block">
+                                            <div style="padding: 0 5px;padding-top:3px;">
+                                                <p class="med_name" style=" font-size: 18px;">@item.ItemName </p>
+                                                <p class="generic_name" style="font-size: 12px;">@item.GenericName</p>
+                                            </div>
+                                            <div class="left_bottom">
+                                                <div class="med_detail">
+                                                    <div class="row_div" style="padding: 0 5px;">
+                                                        <div class="col-4_div detail" style="font-size: 12px;">
+                                                            <p>劑量&nbsp;:&nbsp;</p> <p class="items" style="font-size: 16px;">@item.Dose</p>
+                                                            <p class="items" style="font-size: 16px;"> @item.Usage</p>
+                                                            <p class="items" style="font-size: 16px;"> @item.Way</p>
+                                                            <p style="color: #d1403d">總量&nbsp;:&nbsp;</p> <p class="items" style="font-size: 16px;color: #d1403d"> @item.TotQty</p>
+                                                            <p>單位&nbsp;:&nbsp;</p> <p class="items" style="font-size: 16px;"> @item.DoseUnit</p>
+
+                                                            <!--<p>磨粉&nbsp;:&nbsp;</p> <p class="items"> item.IsMill</p>-->
+
+                                                        </div>
+
+                                                    </div>
+                                                    <div style="display:flex;width:100%;">
+                                                        <div class="med_time_block">
+                                                            <p class="med_time_p" style="font-size: 12px; padding: 0 5px;">開始時間&nbsp;:&nbsp; @item.StartTime&nbsp;&nbsp;&nbsp;&nbsp;</p><p class="med_time_p" style="font-size: 12px; padding: 0 5px;">結束時間&nbsp;:&nbsp; @item.StartTime</p>
+                                                            <div style=" width: 240px; height: 28px; ">
+                                                                <div class="mark_content_bottom row">
+                                                                    <div class="col-2" style="padding:0 5px;">
+                                                                        @if (item.Remark != "")
+                                                                        {
+                                                                            <div class="mobile_mark_items_block remark remark_btn" style="border-radius: 28px; background-color: #ddd; color: green "><p style="font-size: 12px;">備註</p></div>
+                                                                        }
+                                                                    </div>
+                                                                    <div class="col-2" style="padding:0 5px;">
+                                                                        @if (item.Remark != "")
+                                                                        {
+                                                                            <div class="mobile_mark_items_block" style="background-color: #313232; color: white;"><p>貴</p></div>
+                                                                        }
+                                                                    </div>
+                                                                    <div class="col-2" style="padding:0 5px;">
+                                                                        @if (item.Remark != "")
+                                                                        {
+                                                                            <div class="mobile_mark_items_block" style="background-color: #2a97f7; color: white;"><p>冰</p></div>
+                                                                        }
+                                                                    </div>
+                                                                    <div class="col-2" style="padding:0 5px;">
+                                                                        @if (item.Remark != "")
+                                                                        {
+                                                                            <div class="mobile_mark_items_block" style="background-color: #ffd522; color: #b51900;"><p>警</p></div>
+                                                                        }
+                                                                    </div>
+                                                                    <div class="col-2" style="padding:0 5px;">
+                                                                        @if (item.Remark != "")
+                                                                        {
+                                                                            <div class="mobile_mark_items_block" style="background-color: #ef3c3c; color: #fff35d;"><p>管</p></div>
+                                                                        }
+                                                                    </div>
+                                                                    <div class="col-2" style="padding:0 5px;">
+                                                                        @if (item.Remark != "")
+                                                                        {
+                                                                            <div class="mobile_mark_items_block" style="background-color: #eb3ff1; color: white;"><p>DC</p></div>
+                                                                        }
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="img_block">
+                                                            <div class="medImg_div"><i class="fa-solid fa-circle-check check_svg jq_med_img" style="left:initial; right:5px;margin-right: 5px;"></i><i class="jq_med_img fa-regular fa-circle-check check_svg" style="color: #66cf01; left: initial; right: 5px; margin-right: 5px; "></i><img src="@String.Format("http://www.csh.org.tw/into/pharm/Drugimages/{0}.jpg", item.ItemCode)" class="jq_med_img med_img mobile_med_img" value="@item.ItemName" style="margin-right: 5px; width: 63px;"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!---->
+                                            </div>
+                                        </div>
+                                        <div class="remark_content">
+                                            <div style="width: calc(100% - 7px); border: 1px solid black; border-radius: 5px; padding: 2px;">
+                                                <p style="font-size:12px;">備註&nbsp;:&nbsp;@item.Remark</p>
+                                            </div>
+                                        </div>
+                                        <div class="remark_white">
+                                            <div style="width: calc(100% - 7px); border: 1px solid black; border-radius: 5px; padding: 2px;">
+                                                <p style="font-size:12px;">備註&nbsp;:&nbsp;@item.Remark</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="width: 500px; visibility: hidden;"></div>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+
+                <!--block-->
+                <div class="row block_style" style="margin:0;padding:0;">
+                    @foreach (var item in Model.dataDetailsList)
+                    {
+                        med_n++;
+                        white_count++;
+                        bgcolor = "#ddd";
+                        /*
+                        if (@item.background_color == 1)
+                        {
+                            if (white_count % 2 == 1) { bgcolor = "white"; }
+                            else { bgcolor = "#ddd"; }
+                        }
+                        else if (@item.background_color == 2)
+                        {
+                            bgcolor = "#a4f9a4";
+                        }
+                        else if (@item.background_color == 3)
+                        {
+                            bgcolor = "#ffffa2";
+                        }
+                        else
+                        {
+                            bgcolor = "#f5afaf";
+                        }*/
+                        if (@item.IsSelf == "自費")
+                        {
+                            bgcolor = "#ffffa2";
+                        }
+                        else
+                        {
+                            bgcolor = "#baffba";
+                        }
+
+                        if (item.IsChecked)
+                        {
+                            isChecked = true;
+                        }
+                        else
+                        {
+                            isChecked = false;
+                        }
+                        <input type="hidden" id="" name="_checked" value="@isChecked" class="isChecked" />
+                        <div class="body_block col-6" style="margin: 2px 0; padding: 0;position: relative; overflow-x: hidden; ">
+                            <div class="swipe_box" style="width: calc(100% + 1000px); display: flex; position: relative; ">
+                                <div style="width:495px;display:inline;visibility:hidden;margin-right:5px;"></div>
+                                <div class="med_@med_n med_content_block @{ if (isChecked) { Write("green_border"); } } " value="med_@med_n">
+                                    <div class="med_content_right_block">
+                                        <div class="med_content_inside_block">
+                                            <div class="card_top" style="align-items: center; text-align: center;border-bottom:1px solid #ddd;">
+                                                <i class="fa-solid fa-circle-check check_svg jq_med_img" style="font-size: 70px; left: calc(50% - 38px); top: 30px; "></i><i class="jq_med_img fa-regular fa-circle-check check_svg" style="color: #66cf01; font-size: 70px; left: calc(50% - 38px); top: 30px; "></i>
+                                                <img src="@String.Format("http://www.csh.org.tw/into/pharm/Drugimages/{0}.jpg", item.ItemCode)" class="jq_med_img med_img mobile_med_img" value="@item.ItemName" style="margin:0;height:130px">
+                                            </div>
+                                            <div style="padding: 0 5px;padding-top:3px;">
+                                                <p class="med_name" style=" font-size: 14px;">@item.ItemName </p>
+                                                <p class="generic_name" style="font-size: 12px;">學名&nbsp;:&nbsp; @item.GenericName</p>
+                                            </div>
+                                            <div class="left_bottom">
+                                                <div class="med_detail">
+                                                    <div class="row_div" style="padding: 0 5px;">
+                                                        <div class="col-4_div detail mobile_detail">
+                                                            <p>劑量:</p> <p class="items">@item.Dose</p>
+                                                            <p class="items"> @item.Usage</p>
+                                                            <p class="items"> @item.Way</p>
+                                                            <p style="color: #d1403d">總量:</p> <p class="items" style="color: #d1403d"> @item.TotQty</p>
+                                                            <p>單位:</p> <p class="items"> @item.DoseUnit</p>
+
+                                                            <!--<p>磨粉&nbsp;:&nbsp;</p> <p class="items"> item.IsMill</p>-->
+
+                                                        </div>
+
+                                                    </div>
+                                                    <div style="width:100%;">
+                                                        <div class="med_time_block" style="width:100%;">
+                                                            <p class="med_time_p" style="font-size: 12px; padding: 0 5px;">開始:&nbsp;@item.StartTime&nbsp;&nbsp;&nbsp;&nbsp;</p><p class="med_time_p" style="font-size: 12px; padding: 0 5px;">結束:&nbsp;@item.StartTime</p>
+                                                            <div style=" width: 100%; border-top: 1px solid black;">
+                                                                <div class="mark_content_bottom row">
+                                                                    <div class="col-2" style="padding:0;">
+                                                                        @if (item.Remark != "")
+                                                                        {
+                                                                            <div class="mobile_mark_items_block remark remark_btn" style="border-radius: 28px; background-color: #ddd; color: green "><p style="font-size: 12px;">備註</p></div>
+                                                                        }
+                                                                    </div>
+                                                                    <div class="col-2" style="padding:0 ;">
+                                                                        @if (item.Remark != "")
+                                                                        {
+                                                                            <div class="mobile_mark_items_block" style="background-color: #313232; color: white;"><p>貴</p></div>
+                                                                        }
+                                                                    </div>
+                                                                    <div class="col-2" style="padding:0;">
+                                                                        @if (item.Remark != "")
+                                                                        {
+                                                                            <div class="mobile_mark_items_block" style="background-color: #2a97f7; color: white;"><p>冰</p></div>
+                                                                        }
+                                                                    </div>
+                                                                    <div class="col-2" style="padding:0;">
+                                                                        @if (item.Remark != "")
+                                                                        {
+                                                                            <div class="mobile_mark_items_block" style="background-color: #ffd522; color: #b51900;"><p>警</p></div>
+                                                                        }
+                                                                    </div>
+                                                                    <div class="col-2" style="padding:0;">
+                                                                        @if (item.Remark != "")
+                                                                        {
+                                                                            <div class="mobile_mark_items_block" style="background-color: #ef3c3c; color: #fff35d;"><p>管</p></div>
+                                                                        }
+                                                                    </div>
+                                                                    <div class="col-2" style="padding:0;">
+                                                                        @if (item.Remark != "")
+                                                                        {
+                                                                            <div class="mobile_mark_items_block" style="background-color: #eb3ff1; color: white;"><p>DC</p></div>
+                                                                        }
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <!---->
+                                            </div>
+                                        </div>
+                                        <div class="remark_content">
+                                            <div style="width:calc(100% - 7px);border:1px solid black;border-radius:5px;padding:2px;">
+                                                <p style="font-size:12px;">備註&nbsp;:&nbsp;@item.Remark</p>
+                                            </div>
+                                        </div>
+                                        <div class="remark_white">
+                                            <div style="width: calc(100% - 7px); border: 1px solid black; border-radius: 5px; padding: 2px;">
+                                                <p style="font-size:12px;">備註&nbsp;:&nbsp;@item.Remark</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="width: 495px; visibility: hidden;margin-right:5px;"></div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </form>
+        </div>
+        <div class="footer_white_space" style="height: 45px;"></div>
+        <div class="footer_div" style="height: 45px;">
+            <div class="btn_outside_div_left" style="width:30%">
+                @if (ViewBag.lastPId != "")
+                {
+                    <div class="last">
+                        <div style="height: 40px; text-align: center; justify-content: center; align-items: center;display:flex;">
+                            <i class="fa-solid fa-angles-left angles" style="font-size: 20px;"></i>
+                        </div>
+                        <div style="height:40px;justify-content:center;align-items:center;display:flex;">
+                            <div style="text-align: center;">
+                                <i class="fa-solid fa-bed bed" style="font-size: 24px;"></i>
+                                <p class="bed_font" style="font-size: 12px;">@ViewBag.lastPId</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+            <div class="btn_outside_div_right" style="width:70%">
+                <div style="display: flex; position: absolute; align-items: center;right: 10px; text-align: center;">
+                    @*<div class="mobile_div_button" style="background-color:#ddd"><p class="mobile_check_finished_p">出院</p></div>*@
+                    <div class="check_finished mobile_div_button all_check"><p class="mobile_check_finished_p">一鍵完成</p></div>
+                    @if (ViewBag.nextPId != "")
+                    {
+                        <div class="next">
+                            <div style="height:40px;justify-content:center;align-items:center;display:flex;">
+                                <div style="text-align: center;">
+                                    <i class="fa-solid fa-bed bed" style="font-size: 24px;"></i>
+                                    <p class="bed_font" style="font-size: 12px;">@ViewBag.nextPId</p>
+                                </div>
+
+                            </div>
+                            <div style="height: 40px; text-align: center; justify-content: center; align-items: center;display:flex;">
+                                <i class="fa-solid fa-angles-right angles" style="font-size: 20px;"></i>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://MDevWS.csh.org.tw/Components/bootstrap/5.2.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>
+<script>
+    $(".remark_btn").click(function () {
+        console.log(1);
+        $(this).parents(".med_content_right_block").find(".remark_content").toggleClass("remark_hid");
+        $(this).parents(".med_content_outside").find(".remark_content").toggleClass("remark_hid");
+        $(this).parents(".med_content_right_block").find(".remark_white").toggleClass("remark_white_none");
+        $(this).parents(".med_content_outside").find(".remark_white").toggleClass("remark_white_none");
+    })
+    $(".change_line_block").click(function () {
+        if ($(".block_style").hasClass("display_none")) {
+            $(".block_style").removeClass("display_none");
+            $(".line_style").addClass("display_none");
+            $(".block_btn").css("color", "#31662e");
+            $(".line_btn").css("color", "white");
+            $(".mobile_block_btn").css("color", "#31662e");
+            $(".mobile_line_btn").css("color", "white");
+        } else {
+            $(".block_style").addClass("display_none");
+            $(".line_style").removeClass("display_none");
+            $(".line_btn").css("color", "#31662e");
+            $(".block_btn").css("color", "white");
+            $(".mobile_line_btn").css("color", "#31662e");
+            $(".mobile_block_btn").css("color", "white");
+        }
+        $(".border_box").toggleClass("border_box_move");
+        $(".mobile_border_box").toggleClass("mobile_border_box_move");
+    })
+
+    $(".jq_med_img").click(function () {
+        $(".big_img_back").fadeIn();
+        var Bwidth = $(".big_img_back").width() * 0.04;
+        var Bheight = $(".big_img_back").height() * 0.04;
+        $(".big_img_front").css({ "top": Bheight, "left": Bwidth });
+        ChangeModalInfo($(this).attr("value"));
+        /*if ($(this).width() / $(".big_img_front").width() > $(this).height() / $(".big_img_front").height()) {
+            $("#big_img").css("width", "100%");
+        } else {
+            $("#big_img").css("height", "100%");
+        }*/
+        event.stopPropagation();
+    })
+
+    $(".p_interatction").click(function () {
+        var i = $(".p_interatction").attr("value");
+        if ($(".interatction_detail_" + i).css("display") == "none") {
+            $(".interatction_detail_" + i).css("display", "block");
+        } else {
+            $(".interatction_detail_" + i).css("display", "none");
+        }
+        resize_white_block();
+    })
+    $(".last").click(function () {
+        $("#bedid").val("@ViewBag.lastPId");
+        $("#go").submit();
+    })
+    $(".next").click(function () {
+        $("#bedid").val("@ViewBag.nextPId");
+        $("#go").submit();
+    })
+
+    $(".img_center_div").click(function () {
+        $(".patient_info_sec_open").toggle();
+        if ($(".img_expand").hasClass("img_open")) {
+            $(".img_expand").removeClass("img_open");
+        } else {
+            $(".img_expand").addClass("img_open");
+        }
+        resize_white_block();
+        mobile_resize_white_block()
+    })
+
+    $("#dropdownMenuButton1").click(function () {
+        $(".dropdown-menu_1").toggleClass("drop_down");
+        $(".dropdown-menu_1").toggle();
+    })
+    $("#dropdownMenuButton2").click(function () {
+        $(".dropdown-menu_2").toggleClass("drop_down2");
+        $(".dropdown-menu_2").toggle();
+    })
+
+
+    $(window).resize(function () {
+        /*var width = $(this).width();
+        var i = 0;
+        alert(width);
+        if (width >= 960) {
+            $(".med_content").each(function(){
+                i++;
+                if ($(".med_" + i + ".med_content").hasClass("green_border")) {
+                    $(".med_" + i + ".med_content_horiz").addClass("green_border");
+                } else {
+                    $(".med_" + i + ".med_content_horiz").removeClass("green_border");
+                }
+                if ($(".med_" + i + ".med_content").hasClass("red_border")) {
+                    $(".med_" + i + ".med_content_horiz").addClass("red_border");
+                } else {
+                    $(".med_" + i + ".med_content_horiz").removeClass("red_border");
+                }
+            })
+        } else {
+            $(".med_content_horiz").each(function () {
+                i++;
+                if ($(".med_" + i + ".med_content_horiz").hasClass("green_border")) {
+                    $(".med_" + i + ".med_content").addClass("green_border");
+                } else {
+                    $(".med_" + i + ".med_content").removeClass("green_border");
+                }
+                if ($(".med_" + i + ".med_content_horiz").hasClass("red_border")) {
+                    $(".med_" + i + ".med_content").addClass("red_border");
+                } else {
+                    $(".med_" + i + ".med_content").removeClass("red_border");
+                }
+            })
+        }*/
+        resize_white_block();
+        mobile_resize_white_block();
+        width = $(this).width();
+        if ($(".block_style").hasClass("display_none")) {
+            $(".block_style").removeClass("display_none");
+            $(".body_straight,.body_block").delay("slow").scrollLeft(500);
+            $(".block_style").addClass("display_none");
+        } else {
+            $(".line_style").removeClass("display_none");
+            $(".body_straight,.body_block").delay("slow").scrollLeft(500);
+            $(".line_style").addClass("display_none");
+        }
+        if (width >= 768) {
+        } else {
+        }
+
+
+    });
+
+    $(function () {
+        resize_white_block();
+        mobile_resize_white_block();
+        $("._33block").css("display", "block");
+        $(".body_straight,.body_block").delay("slow").scrollLeft(500);
+        $(".block_style").addClass("display_none");
+        $(".line_btn").css("color", "#31662e");
+        $(".remark_content").toggleClass("remark_hid");
+        $(".remark_white").toggleClass("remark_white_none");
+
+
+        $(".mobile_line_btn").css("color", "#31662e");
+    });
+
+    $(".big_img_back").click(function () {
+        $(this).fadeOut();
+
+    })
+
+    $(".back_img").click(function () {
+        window.location.href = "SelectPatient";
+    })
+
+    $(".all_check").click(function () {
+        $(".med_content_outside,.med_content_block").addClass('green_border');
+        $(".isChecked").val("true");
+        $(".check_svg").css("display", "block");
+        //$(".red_border").removeClass('green_border');
+    })
+
+    /*
+    $("#check_finished").click(function () {
+        $("#checked").submit();
+    })*/
+    /*$(".modify").click(function () {
+        if ($(this).hasClass("modify_false")) {
+            $(".header_div").css("background-color", "darkred");
+            $(".footer_div").css("background-color", "darkred");
+            $(this).removeClass("modify_false");
+            $(this).addClass("modify_true");
+            $(".modify_p").text("確認");
+        } else {
+            $(".header_div").css("background-color", "#31662e");
+            $(".footer_div").css("background-color", "#31662e");
+            $(this).removeClass("modify_true");
+            $(this).addClass("modify_false");
+            $(".modify_p").text("更正");
+        }
+    })*/
+
+    $('body').on('touchstart', function (event) {
+        x = event.targetTouches[0].pageX;
+        y = event.targetTouches[0].pageY;
+        swipeX = true;
+        swipeY = true;
+    })
+
+    $('.med_content_outside,.med_content_block').on('touchmove', function (event) {
+        x1 = event.targetTouches[0].pageX;
+        y1 = event.targetTouches[0].pageY;
+        if (swipeX && Math.abs(x1 - x) - Math.abs(y1 - y) > 0) {
+            event.stopPropagation();
+            if (x1 - x > 80 && (!$(this).hasClass("green_border"))) {
+                $(this).parent(".swipe_box").addClass("swiperight");
+                $(this).parent(".swipe_box").addClass("swipe_visible");
+                $(this).addClass("green_border");
+                $(this).find(".check_svg").css("display", "block");
+                setTimeout(() => {
+                    $(this).parent(".swipe_box").removeClass("swiperight");;
+                    setTimeout(() => {
+                        $(this).parent(".swipe_box").removeClass("swipe_visible");
+                    }, 100);
+                }, 150);
+
+            }
+            if (x - x1 > 80 && $(this).hasClass("green_border")) {
+                $(this).parent(".swipe_box").addClass("swipeleft");
+                $(this).parent(".swipe_box").addClass("swipe_visible");
+                $(this).removeClass("green_border");
+                $(this).find(".check_svg").css("display", "none");
+                setTimeout(() => {
+                    $(this).parent(".swipe_box").removeClass("swipeleft");
+                    setTimeout(() => {
+                        $(this).parent(".swipe_box").removeClass("swipe_visible");
+                    }, 100);
+                }, 150);
+            }
+            swipeY = false;
+        }
+        if (swipeY && Math.abs(x1 - x) - Math.abs(y1 - y) < 0) {
+            swipeX = false;
+        }
+    })
+    $(".prn_btn").click(function () {
+        $(".prn").toggle();
+    })
+    $(".33block_btn").click(function () {
+        $("._33block").toggle();
+    })
+    function resize_white_block() {
+        var prn = $(".prn").css("display");
+        var _33block = $("._33block").css("display");
+        $(".prn").css("display", "none");
+        $("._33block").css("display", "none");
+        var h = $("header").height().toString();
+        $(".white_space").css("height", h + "px");
+        $("._33block").css("display", _33block);
+        $(".prn").css("display", prn);
+    }
+
+    function mobile_resize_white_block() {
+        var prn = $(".prn").css("display");
+        var _33block = $("._33block").css("display");
+        $(".prn").css("display", "none");
+        $("._33block").css("display", "none");
+        var h = $(".mobile_header").height().toString();
+        $(".mobile_white_space").css("height", h + "px");
+        $("._33block").css("display", _33block);
+        $(".prn").css("display", prn);
+    }
+
+    function ChangeModalInfo(name) {
+            $(".drugInfo").each(function () {
+                var id = $(this).attr("id");
+                var content = "";
+                switch (id) {
+                    case 'Manufactory': {
+                        content = "@Model.dataDetailsList[0].Manufactory";
+                        break;
+                    }
+                    case 'TradeName': {
+                        content = "@Model.dataDetailsList[0].TradeName";
+                        break;
+                    }
+                    case 'ChineseName': {
+                        content = "@Model.dataDetailsList[0].ChineseName";
+                        break;
+                    }
+                    case 'GenericName': {
+                        content = "@Model.dataDetailsList[0].GenericName";
+                        break;
+                    }
+                    case 'LicenseNumber': {
+                        content = "@Model.dataDetailsList[0].LicenseNumber";
+                        break;
+                    }
+                    case 'ItemCode': {
+                        content = "@Model.dataDetailsList[0].ItemCode";
+                        break;
+                    }
+                    case 'Form': {
+                        content = @Model.dataDetailsList[0].Form;
+                        break;
+                    }
+                    case 'GenericCode': {
+                        content = "@Model.dataDetailsList[0].GenericCode";
+                        break;
+                    }
+                    case 'IndicationsA1': {
+                        content = "@Model.dataDetailsList[0].IndicationsA1";
+                        break;
+                    }
+                    case 'IndicationsA2': {
+                        content = "@Model.dataDetailsList[0].IndicationsA2";
+                        break;
+                    }
+                    case 'AdultDosing': {
+                        content = "@Model.dataDetailsList[0].AdultDosing";
+                        break;
+                    }
+                    case 'AdverseEffectsA1': {
+                        content = "@Model.dataDetailsList[0].AdverseEffectsA1";
+                        break;
+                    }
+                    case 'AdverseEffectsA2': {
+                        content = "@Model.dataDetailsList[0].AdverseEffectsA2";
+                        break;
+                    }
+                    case 'Contraindication': {
+                        content = "@Model.dataDetailsList[0].Contraindication";
+                        break;
+                    }
+                    case 'Precautions': {
+                        content = "@Model.dataDetailsList[0].Precautions";
+                        break;
+                    }
+                    case 'Dispose': {
+                        content = "@Model.dataDetailsList[0].Dispose";
+                        break;
+                    }
+                    case 'Storage': {
+                        content = "@Model.dataDetailsList[0].Storage";
+                        break;
+                    }
+                    case 'HighAlert': {
+                        if (@Model.dataDetailsList[0].HighAlert== 0) {
+                            content = "非高警訊藥品";
+                        } else if (@Model.dataDetailsList[0].HighAlert== 1) {
+                            content = "高警訊藥品";
+                        } else if (@Model.dataDetailsList[0].HighAlert== 2) {
+                            content = "化療注射劑";
+                        } else if (@Model.dataDetailsList[0].HighAlert== 3) {
+                            content = "兒童專用藥";
+                        } else if (@Model.dataDetailsList[0].HighAlert== 4) {
+                            content = "人體臨床試驗藥品";
+                        }
+                        break;
+                    }
+                    case 'Pregnancy': {
+                        content = "@Model.dataDetailsList[0].Pregnancy";
+                        break;
+                    }
+                    case 'NhiNorm': {
+                        content = "@Model.dataDetailsList[0].NhiNorm";
+                        break;
+                    }
+                    case 'ExpireHourDesc': {
+                        content = "@Model.dataDetailsList[0].ExpireHourDesc";
+                        break;
+                    }
+                    case 'Injection': {
+                        content = "@Model.dataDetailsList[0].Injection";
+                        break;
+                    }
+                    case 'DrugImg': {
+                        content = "@Model.dataDetailsList[0].DrugImg";
+                        break;
+                    }
+                    case 'DrugPkgImg': {
+                        content = "@Model.dataDetailsList[0].DrugPkgImg";
+                        break;
+                    }
+                    default: {
+                        break;
+                    }
+                }
+                $(this).html(content);
+                $("#DrugImg").attr("src", "@Model.dataDetailsList[0].DrugImg");
+                $("#DrugPkgImg").attr("src", "@Model.dataDetailsList[0].DrugPkgImg");
+            })
+    }
+
+    $(".batch_show").click(function () {
+        $(".batch_detail_back").fadeIn();
+        var Bwidth = $(".batch_detail_back").width() * 0.25;
+        var Bheight = $(".batch_detail_back").height() * 0.4;
+        $(".batch_detail_front").css({ "top": Bheight, "left": Bwidth });
+        ChangeModalInfo($(this).attr("value"));
+        event.stopPropagation();
+    })
+
+    $(".batch_detail_back").click(function () {
+        $(this).fadeOut();
+
+    })
+
+</script>

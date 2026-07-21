@@ -1,0 +1,62 @@
+﻿@model WebSite.AppInPtUddWork.Models.User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://MDevWS.csh.org.tw/Components/bootstrap/5.2.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://MDevWS.csh.org.tw/Components/FontAwesome/6.1.2/css/all.css" />
+    <link rel="stylesheet" href="~/Content/style/custom.css" />
+
+    <title>系統選擇</title>
+</head>
+<body>
+    <input type="hidden" id="empNo" name="empNo" value="@Model.EmpNo" />
+    <div class="body_container">
+        <div class="row">
+            <div class="nursing_station_card col-12 col-sm-12 col-lg-12 goStationListBtn" id="goStationListBtn">
+
+                <div class="card_checkMed">
+                    <div class="card_info">
+                        <form method="get" action="~/InPtUddWork/StationList" class="form">
+                            <p class="ward_font">UD長期用藥核對</p>
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="nursing_station_card col-12 col-sm-12 col-lg-12 medispan">
+                <div class="card_turnBackCheck">
+                    <div class="card_info">
+                        <p class="ward_font">退藥確認</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://MDevWS.csh.org.tw/Components/jQuery/3.5.1/Scripts/jQuery-3.5.1.js"></script>
+    <script type="text/javascript" src="https://MDevWS.csh.org.tw/Components/bootstrap/4.5.1/Scripts/bootstrap.js"></script>
+    <script type="text/javascript" src="https://MDevWS.csh.org.tw/Components/bootstrap/4.5.1/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://MDevWS.csh.org.tw/Components/bootstrap/4.5.1/Scripts/bootstrap.bundle.js"></script>
+    <script type="text/javascript" src="https://MDevWS.csh.org.tw/Components/FontAwesome/5.13.0/Scripts/all.js"></script>
+    <script>
+        $(".medispan").click(function () {
+            let empNo = document.getElementById("empNo").value;
+            var url = `http://hapi.csh.org.tw/orders/#/in_patient_return_drugs_ms_rx?empNo=${empNo}`
+            var newTab = window.open(url, '_blank');
+            newTab.location;
+        })
+
+        $(".goStationListBtn").click(function () {
+            $(this).children().children().children(".form").submit();
+        });
+    </script>
+</body>
+</html>

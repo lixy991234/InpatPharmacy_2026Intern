@@ -1,0 +1,171 @@
+﻿@model WebSite.AppInPtUddWork.ViewModels.BedViewModel
+
+@{
+    ViewBag.Title = "RoomBedList";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://MDevWS.csh.org.tw/Components/bootstrap/5.2.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://MDevWS.csh.org.tw/Components/FontAwesome/6.1.2/css/all.css" />
+    <link href="~/Content/style/roombedlist-style.css" rel="stylesheet">
+    <title>病床患者清單</title>
+</head>
+<body>
+    <header>
+        <div class="header_div">
+            <img src="~/images/back.png" class="back_img" />
+            <p class="header_title">@Model.station 護理站</p>
+            <div style=" position: absolute; right: 10px; top: 8px;">
+                <div id="dropdownMenuButton1" style="float: right; width: 35px; height: 35px; margin-left: 10px; margin-top: -3px; font-size: 30px; color: white;">
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+                <div class="dropdown" style="right: 10rem; top: 3rem">
+                    <ul class="dropdown-menu dropdown-menu_1" style="width: 200px; font-size: 18px; font-weight: 500;">
+                        <li><a class="dropdown-item" href="#">回首頁</a></li>
+                        <li><a class="dropdown-item" href="SelectNursingStation">護理站</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="search_bar">
+            <div class="search_img_div">
+                <img src="~/images/search.png" class="search_img" />
+            </div>
+            <div class="search_text_div">
+                <input class="search_text" id="search_input" type="text" placeholder=" Search" />
+            </div>
+            <div class="search_btn_div">
+                <div class="mark_items_btn search1"><p class="p_mark">管</p></div>
+                <div class="mark_items_btn search2"><p class="p_mark">警</p></div>
+                <div class="mark_items_btn search3"><p class="p_mark">冰</p></div>
+                <div class="mark_items_btn search4"><p class="p_mark">DC</p></div>
+                <div class="mark_items_btn search6"><p class="p_mark">貴</p></div>
+                <div class="mark_items_btn search5"><p class="p_mark">補</p></div>
+            </div>
+        </div>
+    </header>
+    <div class="row body_content_PatientList">
+
+        @foreach (var pItem in Model.bedList)
+        {
+            if (pItem.ChartNo != 0)
+            {
+                <div class="form_submit list_style">
+                    <span class="item_tag @pItem.CtrlDrug @pItem.HighAlert @pItem.IsDC @pItem.IsFreezer @pItem.IsExpensive @pItem.IsExpandRepair" style="display:none;"></span>
+                    <span class="item_text @pItem.RoomBed @pItem.PtName @pItem.ChartNo"></span>
+                    <div class="patient_content_horiz">
+                        <form method="post">
+                            <input type="hidden" name="ward" value="@Model.station" />
+                            <input type="hidden" name="roomBed" value="@pItem.RoomBed" />
+                        </form>
+                        <div class="roombedList-container-horiz-long">
+                            <div class="roombedList-state-horiz">
+                                <img src="~/images/g.png" class="stage_img" />
+                            </div>
+                            <div class="roombedList-bedNo-horiz">
+                                <div>
+                                    <p class="p_bedNo">@pItem.RoomBed</p>
+                                </div>
+                            </div>
+                            <div class="roombedList-patient-horiz">
+                                <div class="patient">
+                                    <span style="width: 100%;">
+                                        <p class="p_name">@pItem.PtName</p>
+                                        <p class="p_id">@pItem.ChartNo</p>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="roomList-out-horiz">
+                                <div class="col-10 mark_items">
+                                    @if (!String.IsNullOrEmpty(@pItem.IsOut))
+                                    {
+                                        <p class="p_out">出院</p>
+                                    }
+                                    @if (!String.IsNullOrEmpty(@pItem.ChangeBed))
+                                    {
+                                        <p class="p_out">轉床</p>
+                                        <p class="p_out">@pItem.ChangeRoomBed</p>
+                                    }
+                                </div>
+                            </div>
+                            <div class="roomList-divider-horiz">
+                            </div>
+                            @if (!String.IsNullOrEmpty(pItem.CtrlDrug))
+                            {
+                                <div class="roomList-ctrl-horiz">
+                                    <div class="col-10 mark_items" style="background-color: #ff0000; color: #ffe600; font-size: 20px; text-align: center; align-items: center;"><p class="p_mark">管</p></div>
+                                </div>
+                            }
+                            @if (!String.IsNullOrEmpty(pItem.HighAlert))
+                            {
+                                <div class="roomList-alert-horiz">
+                                    <div class="col-10 mark_items" style="background-color: #ffe600; color: #ff0000; font-size: 20px; text-align: center; align-items: center;"><p class="p_mark">警</p></div>
+                                </div>
+                            }
+                            @if (pItem.ChartNo != 0)
+                            {
+                                <div class="roomList-expandDate-horiz">
+                                    <p class="p_expdate">@pItem.ExpandDate</p>
+                                </div>
+                            }
+                            @if (!String.IsNullOrEmpty(pItem.IsDC))
+                            {
+                                <div class="roomList-dc-horiz">
+                                    <div class="col-10 mark_items" style="background-color: #fac8fe; color: white; font-size: 20px; text-align: center; align-items: center;"><p class="p_mark">DC</p></div>
+                                </div>
+                            }
+
+                            @if (!String.IsNullOrEmpty(pItem.IsFreezer))
+                            {
+                                <div class="roomList-freeze-horiz">
+                                    <div class="col-10 mark_items" style="background-color: #0095e9; color: white; font-size: 20px; text-align: center; align-items: center; "><p class="p_mark">冰</p></div>
+                                </div>
+                            }
+                            @if (!String.IsNullOrEmpty(pItem.IsExpensive))
+                            {
+                                <div class="roomList-expensive-horiz">
+                                    <div class="col-10 mark_items" style="background-color: #313232; color: white; font-size: 20px; text-align: center; align-items: center; "><p class="p_mark">貴</p></div>
+                                </div>
+                            }
+                            @if (!String.IsNullOrEmpty(pItem.IsExpandRepair))
+                            {
+                                <div class="roomList-reExpand-horiz">
+                                    <div class="col-10 mark_items" style="background-color: #313232; color: white; font-size: 20px; text-align: center; align-items: center; "><p class="p_mark">補</p></div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://MDevWS.csh.org.tw/Components/bootstrap/5.2.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/js/roombedlist.js"></script>
+</body>
+</html>
+<script>
+    $(".back_img").click(function () {
+        window.location.href = "StationList";
+    })
+
+    $("#dropdownMenuButton1").click(function () {
+        $(".dropdown-menu_1").toggleClass("drop_down");
+        $(".dropdown-menu_1").toggle();
+    })
+
+    $("#dropdownMenuButton2").click(function () {
+        $(".dropdown-menu_2").toggleClass("drop_down2");
+        $(".dropdown-menu_2").toggle();
+    })
+</script>
+
+@*健保綠：#baffba
+自費黃：#ffffa2*@

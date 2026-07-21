@@ -1,0 +1,107 @@
+﻿@model IEnumerable<WebSite.AppInPtUddWork.ViewModels.StationViewModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://MDevWS.csh.org.tw/Components/bootstrap/5.2.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://MDevWS.csh.org.tw/Components/FontAwesome/6.1.2/css/all.css" />
+    <link rel="stylesheet" href="~/Content/style/stationlist-style.css" />
+    <title>選擇護理站</title>
+</head>
+<body>
+    <header>
+        <div class="header_div">
+            @*<img src="~/image/back.png" class="back_img" />*@
+            <p class="header_title">選擇護理站</p>
+            <div style=" position: absolute; right: 10px; top: 8px;">
+                <div id="dropdownMenuButton1" style="float: right; width: 35px; height: 35px; margin-left: 10px; margin-top: -3px; font-size: 30px; color: white;">
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+                <div class="dropdown" style="right: 10rem; top: 3rem">
+                    <ul class="dropdown-menu dropdown-menu_1" style="width: 200px; font-size: 18px; font-weight: 500;">
+                        <li><a class="dropdown-item" href="#">回首頁</a></li>
+                        <li><a class="dropdown-item" href="SelectNursingStation">護理站</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="search_bar">
+            <img src="~/images/search.png" class="search_img" /><input class="search_text" id="search_input" type="text" placeholder=" Search" />
+        </div>
+    </header>
+    <div>
+        <div class="body_container">
+
+            <div class="row">
+                @using WebSite.AppInPtUddWork.Helpers
+                @{ var b = "";}
+                @foreach (var item in Model.OrderBy(item => item.Zone))
+                {
+                    if (item.Zone != b)
+                    {
+                        
+                        b = item.Zone;
+                        <div class="building_font">@SiteHelper.GetZoneShowName(item.Zone) </div>
+                    }
+
+                    <div class="form_submit nursing_station_card col-12 col-sm-6 col-lg-4">
+                        <div class="card_content">
+                            <form method="post">
+                                <input type="hidden" name="zone" value="@item.Zone" />
+                                <input type="hidden" name="wardId" value="@item.Ward" />
+                                <input type="hidden" name="preExpandHm" value="@item.PreExpandHm" />
+                            </form>
+                            <!--<div class="finist_stage">-->
+                            <!--這裡之後要加護理站檢藥完成狀況-->
+                            <!--<img src="~/image/b.png" class="stage_img" /><p class="stage_font">完成交車</p>
+                            </div>-->
+                            <div class="card_info">
+                                <p class="ward_font">@item.Ward</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://MDevWS.csh.org.tw/Components/bootstrap/5.2.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>
+
+<script>
+    $(".form_submit").click(function () {
+        $(this).find("form").submit();
+    })
+
+    $(document).ready(function () {
+        $("#search_input").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $(".form_submit").css("display", "none");[]
+
+            $(".ward_font").filter(function () {
+                if ($(this).text().toLowerCase().indexOf(value) > -1) {
+                    $(this).parent().parent().parent().css("display", "block");
+                }
+            });
+        });
+    });
+
+    $("#dropdownMenuButton1").click(function () {
+        $(".dropdown-menu_1").toggleClass("drop_down");
+        $(".dropdown-menu_1").toggle();
+    })
+    $("#dropdownMenuButton2").click(function () {
+        $(".dropdown-menu_2").toggleClass("drop_down2");
+        $(".dropdown-menu_2").toggle();
+    })
+</script>
